@@ -1,0 +1,70 @@
+import { Globe2, FileCode2, MessageSquare, Package, Plane } from 'lucide-react';
+
+const features = [
+  {
+    name: 'Technical Fluency',
+    description: 'We work directly with your STEP, IGES, and PDF drawings, ensuring exact specifications are met without ambiguity.',
+    icon: FileCode2,
+  },
+  {
+    name: 'Clear Communication',
+    description: 'Fluent English support means your requirements are understood perfectly. We keep you updated at every stage.',
+    icon: MessageSquare,
+  },
+  {
+    name: 'Flexible Production',
+    description: 'We welcome prototypes and small-batch production runs, allowing you to test quality before scaling up.',
+    icon: Package,
+  },
+  {
+    name: 'Export Logistics',
+    description: 'We handle the complexities of international shipping, packaging, and export documentation to deliver securely to your facility.',
+    icon: Plane,
+  },
+];
+
+export default function GlobalExports() {
+  return (
+    <div id="global" className="bg-zinc-900 py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <Globe2 className="h-5 w-5 text-yellow-400" />
+              <h2 className="text-sm font-bold leading-7 text-yellow-400 uppercase tracking-wider">
+                Global Sourcing
+              </h2>
+            </div>
+            <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
+              Seamless Manufacturing for US & European Markets
+            </h3>
+            <div className="space-y-6 text-lg text-zinc-400 leading-relaxed">
+              <p>
+                After building a strong, 20-year foundation in India, we bring our established manufacturing excellence to international clients. 
+              </p>
+              <p>
+                Companies in the US and Europe turn to us when local manufacturing becomes cost-prohibitive, but compromising on quality is not an option. From architectural components to precision industrial parts, we bridge the gap with exceptional quality-to-cost value.
+              </p>
+              <p>
+                We know that overseas sourcing requires trust. That’s why we focus on transparency, strict adherence to your drawings, and hassle-free delivery.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {features.map((feature) => (
+              <div key={feature.name} className="bg-zinc-800/50 border border-zinc-700/50 p-6 rounded-2xl hover:bg-zinc-800 transition-colors">
+                <feature.icon className="h-8 w-8 text-yellow-400 mb-4" />
+                <h4 className="text-lg font-bold text-white mb-2">{feature.name}</h4>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,116 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: {userId}
+    // Fields:
+    //   - uid: string (required) - User's unique ID
+    //   - email: string (required) - User's email
+    //   - role: string (required, 'admin' or 'user') - User's role
+    //
+    // Collection: quotes
+    // Document ID: {quoteId}
+    // Fields:
+    //   - name: string (required, max 100 chars) - Customer name
+    //   - email: string (required, valid email) - Customer email
+    //   - phone: string (required, max 20 chars) - Customer phone
+    //   - requirements: string (required, max 5000 chars) - Project requirements
+    //   - fileName: string (optional, max 200 chars) - Uploaded file name
+    //   - fileData: string (optional, max 800000 chars) - Base64 file data
+    //   - fileType: string (optional, max 100 chars) - MIME type
+    //   - status: string (required, 'new', 'reviewed', 'contacted') - Quote status
+    //   - createdAt: timestamp (required) - Submission time
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (
+          (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+           get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin') ||
+          (request.auth.token.email == "adithyam9951@gmail.com" && request.auth.token.email_verified == true) ||
+          (request.auth.token.email == "sugunaengineeringworks2007@gmail.com" && request.auth.token.email_verified == true)
+        );
+    }
+
+    function isValidEmail(email) {
+      return email is string &&
+        email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function isValidOptionalString(field, minLen, maxLen) {
+      return !(field in request.resource.data) ||
+             (request.resource.data[field] is string &&
+              request.resource.data[field].size() >= minLen &&
+              request.resource.data[field].size() <= maxLen);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser() {
+      return hasOnlyAllowedFields(['uid', 'email', 'role']) &&
+             request.resource.data.uid is string && request.resource.data.uid.size() > 0 &&
+             request.resource.data.email is string && isValidEmail(request.resource.data.email) &&
+             request.resource.data.role in ['admin', 'user'];
+    }
+
+    function isValidQuote() {
+      let allowedFields = ['name', 'email', 'phone', 'requirements', 'fileName', 'fileData', 'fileType', 'status', 'createdAt', 'location'];
+      return hasOnlyAllowedFields(allowedFields) &&
+             request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 100 &&
+             request.resource.data.email is string && isValidEmail(request.resource.data.email) &&
+             request.resource.data.phone is string && request.resource.data.phone.size() > 0 && request.resource.data.phone.size() <= 20 &&
+             request.resource.data.requirements is string && request.resource.data.requirements.size() > 0 && request.resource.data.requirements.size() <= 5000 &&
+             isValidOptionalString('fileName', 1, 200) &&
+             isValidOptionalString('fileData', 1, 800000) &&
+             isValidOptionalString('fileType', 1, 100) &&
+             isValidOptionalString('location', 1, 500) &&
+             request.resource.data.status in ['new', 'reviewed', 'contacted'] &&
+             request.resource.data.createdAt is timestamp;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isAuthenticated() && isValidUser() && 
+                    ((isOwner(userId) && request.resource.data.role == 'user') || isAdmin());
+      allow update: if isAuthenticated() && isValidUser() && 
+                    ((isOwner(userId) && request.resource.data.role == resource.data.role) || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    match /quotes/{quoteId} {
+      allow read: if isAdmin();
+      // Anyone can create a quote (even unauthenticated users)
+      allow create: if isValidQuote() && request.resource.data.status == 'new';
+      allow update: if isAdmin() && isValidQuote();
+      allow delete: if isAdmin();
+    }
+  }
+}
