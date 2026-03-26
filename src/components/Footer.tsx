@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-12 lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
               <img 
-                src="/images/suguna_logo.jfif" 
+                src="/images/suguna_logo.jpg" 
                 alt="SEW Logo" 
                 className="h-12 w-auto object-contain" 
                 onError={(e) => { 

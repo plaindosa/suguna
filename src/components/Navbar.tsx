@@ -40,7 +40,7 @@ export default function Navbar() {
               </div>
             ) : (
               <img 
-                src="/images/suguna_logo.jfif" 
+                src="/images/suguna_logo.jpg" 
                 alt="SUGUNA Logo" 
                 className="w-auto object-contain h-8 sm:h-12 shrink-0" 
                 onError={() => setImgError(true)} 
