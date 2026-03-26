@@ -111,7 +111,7 @@ export default function ContactCTA() {
   };
 
   return (
-    <div id="contact" className="bg-white py-24 sm:py-32">
+    <div id="contact" className="bg-white py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -145,9 +145,19 @@ export default function ContactCTA() {
                   <Phone className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm font-medium text-zinc-400">Direct Technical Support</p>
-                    <a href="tel:+918500319532" className="text-lg font-medium text-white hover:text-yellow-400 transition-colors">
-                      +91 8500319532
-                    </a>
+                    <div className="flex items-center gap-3 mt-1">
+                      <a href="tel:+918500319532" className="text-lg font-medium text-white hover:text-yellow-400 transition-colors">
+                        +91 8500319532
+                      </a>
+                      <a 
+                        href={`https://wa.me/918500319532?text=${encodeURIComponent("Hi Suguna Engineering Works, I would like to inquire about your services.")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold px-3 py-1 rounded-full transition-colors"
+                      >
+                        WhatsApp Us
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

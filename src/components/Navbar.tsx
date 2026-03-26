@@ -17,6 +17,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'Capabilities', href: '#capabilities' },
+    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Industries', href: '#industries' },
     { name: 'International', href: '#global' },
     { name: 'About', href: '#about' },
@@ -32,22 +33,24 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20'}`}>
-          <a href="#" className="flex-shrink-0 flex items-center gap-3">
+          <a href="#" className="flex items-center gap-2 sm:gap-3 min-w-0">
             {imgError ? (
-              <div className="bg-zinc-900 text-yellow-400 flex items-center justify-center rounded-lg font-bold w-10 h-10 text-sm">
+              <div className="bg-zinc-900 text-yellow-400 flex items-center justify-center rounded-lg font-bold w-8 h-8 sm:w-10 sm:h-10 text-xs sm:text-sm shrink-0">
                 SEW
               </div>
             ) : (
               <img 
-                src="/logo.png" 
-                alt="SEW Logo" 
-                className="w-auto object-contain h-10" 
+                src="/images/suguna_logo.jfif" 
+                alt="SUGUNA Logo" 
+                className="w-auto object-contain h-8 sm:h-12 shrink-0" 
                 onError={() => setImgError(true)} 
+                fetchPriority="high"
+                loading="eager"
               />
             )}
-            <div className="flex items-center gap-2">
-              <span className="font-bold tracking-tight text-zinc-900 text-xl">SUGUNA</span>
-              <span className="font-bold tracking-tight text-zinc-900 uppercase text-xl">Engineering Works</span>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 min-w-0">
+              <span className="font-bold tracking-tight text-zinc-900 text-base sm:text-xl leading-none truncate">SUGUNA</span>
+              <span className="font-bold tracking-tight text-zinc-900 uppercase text-[10px] sm:text-xl leading-none truncate">Engineering Works</span>
             </div>
           </a>
           
@@ -69,8 +72,12 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-zinc-600 hover:text-zinc-900 transition-colors">
+          <div className="md:hidden flex items-center shrink-0 ml-4">
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="p-2 -mr-2 text-zinc-600 hover:text-zinc-900 transition-colors"
+              aria-label="Toggle menu"
+            >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>

@@ -1,23 +1,95 @@
-import { Image as ImageIcon } from 'lucide-react';
-
 export default function PortfolioPlaceholder() {
   return (
-    <div id="industries" className="bg-zinc-50 py-24 sm:py-32 border-t border-zinc-200">
+    <div id="portfolio" className="bg-white py-16 sm:py-24 border-t border-zinc-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-            Industries Served
-          </h2>
+        <div className="max-w-2xl mb-10 sm:mb-12">
+          <h2 className="text-sm font-bold leading-7 text-yellow-600 uppercase tracking-wider">Our Work</h2>
+          <h3 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+            Portfolio
+          </h3>
           <p className="mt-4 text-lg text-zinc-600">
             Examples of precision machined components, fabricated assemblies, and sheet metal parts we manufacture for various sectors.
           </p>
+          <p className="mt-3 text-sm text-zinc-500 italic border-l-2 border-yellow-400 pl-3">
+            * Note: The components shown below are either our internal sample works or showcased with explicit permission from our clients.
+          </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="aspect-[4/3] bg-zinc-200 rounded-xl flex flex-col items-center justify-center text-zinc-400 border border-zinc-300 border-dashed">
-              <ImageIcon className="h-8 w-8 mb-2 opacity-50" />
-              <span className="text-sm font-medium">Portfolio Image {i}</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              src: "/images/portfolioMain/1 sample work ( no applicatoin we made this for showcase of our capability).webp",
+              title: "Sample Work",
+              description: "Showcase of our manufacturing capability (No specific application).",
+              category: "Showcase"
+            },
+            {
+              src: "/images/portfolioMain/2airfram structure titanium made.webp",
+              title: "Airframe Structure",
+              description: "High-precision airframe structure manufactured from Titanium.",
+              category: "Aerospace"
+            },
+            {
+              src: "/images/portfolioMain/3 Mounting Bracket Rigid Support Componentfor automation orindustrial.webp",
+              title: "Mounting Bracket",
+              description: "Rigid support component for automation and industrial applications.",
+              category: "Automation"
+            },
+            {
+              src: "/images/portfolioMain/4automationSystem Mounting Component  for for industrial equipment and motion systems.webp",
+              title: "Automation System Mount",
+              description: "Mounting component for industrial equipment and motion systems.",
+              category: "Industrial"
+            },
+            {
+              src: "/images/portfolioMain/5 Drive Plate Torque Transfer Component.webp",
+              title: "Drive Plate",
+              description: "Precision torque transfer component for mechanical systems.",
+              category: "Mechanical"
+            },
+            {
+              src: "/images/portfolioMain/6vibration fixture for electronic component-1.webp",
+              title: "Vibration Fixture",
+              description: "Specialized fixture for electronic component testing.",
+              category: "Electronics"
+            },
+            {
+              src: "/images/portfolioMain/7 laser cut part.webp",
+              title: "Laser Cut Part",
+              description: "Precision laser-cut component with high edge quality.",
+              category: "Laser Cutting"
+            },
+            {
+              src: "/images/portfolioMain/8edm cut parts for ev and other.webp",
+              title: "EDM Cut Parts",
+              description: "Wire EDM cut parts for EV and other high-precision sectors.",
+              category: "EDM"
+            }
+          ].map((item, i) => (
+            <div key={i} className="group relative overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200 shadow-sm transition-all hover:shadow-xl select-none">
+              <div className="aspect-[4/3] w-full overflow-hidden relative">
+                {/* Transparent overlay to prevent direct image interaction */}
+                <div className="absolute inset-0 z-10" onContextMenu={(e) => e.preventDefault()} />
+                <img 
+                  src={item.src} 
+                  alt={item.title}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                  referrerPolicy="no-referrer"
+                  onContextMenu={(e) => e.preventDefault()}
+                  draggable={false}
+                  loading="lazy"
+                />
+                
+                {/* Gradient Overlay - only covers bottom half */}
+                <div className="absolute inset-0 z-20 bg-gradient-to-t from-zinc-900/90 via-zinc-900/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
+                {/* Hover Content */}
+                <div className="absolute inset-x-0 bottom-0 z-30 p-4 sm:p-5 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end pointer-events-none">
+                  <span className="text-yellow-400 text-[10px] font-bold uppercase tracking-wider mb-1 block">{item.category}</span>
+                  <h4 className="text-white font-bold text-base mb-1">{item.title}</h4>
+                  <p className="text-zinc-300 text-xs leading-snug line-clamp-2">{item.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -11,6 +11,8 @@ export default function Hero() {
           alt="CNC Machining" 
           className="w-full h-full object-cover opacity-20"
           referrerPolicy="no-referrer"
+          fetchPriority="high"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-900/80 to-zinc-900"></div>
       </div>
@@ -34,7 +36,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-lg sm:text-xl text-zinc-300 leading-relaxed max-w-3xl mx-auto mb-8">
-              Trusted by ISRO, Larsen & Toubro, and global engineering companies. Delivering precision components from India to the USA and Europe.
+              Trusted by ISRO, Larsen & Toubro, and global engineering companies. Delivering high-precision CNC components for engineering teams across India, USA, and Europe.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-3xl mx-auto">

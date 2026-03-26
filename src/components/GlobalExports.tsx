@@ -25,7 +25,7 @@ const features = [
 
 export default function GlobalExports() {
   return (
-    <div id="global" className="bg-zinc-900 py-24 sm:py-32">
+    <div id="global" className="bg-zinc-900 py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -40,13 +40,16 @@ export default function GlobalExports() {
             </h3>
             <div className="space-y-6 text-lg text-zinc-400 leading-relaxed">
               <p>
-                After building a strong, 20-year foundation in India, we bring our established manufacturing excellence to international clients. 
+                With over 20 years of manufacturing experience in India, we support engineering teams in the USA and Europe with high-precision CNC components.
               </p>
               <p>
-                Companies in the US and Europe turn to us when local manufacturing becomes cost-prohibitive, but compromising on quality is not an option. From architectural components to precision industrial parts, we bridge the gap with exceptional quality-to-cost value.
+                When domestic manufacturing becomes cost-prohibitive, we offer a reliable alternative — without compromising on quality. We deliver consistent precision, competitive pricing, and dependable lead times.
               </p>
               <p>
-                We know that overseas sourcing requires trust. That’s why we focus on transparency, strict adherence to your drawings, and hassle-free delivery.
+                We understand that overseas sourcing requires trust. That’s why we focus on clear communication, strict adherence to your drawings, and hassle-free delivery.
+              </p>
+              <p className="font-bold text-white text-xl border-l-4 border-yellow-400 pl-4 py-1 mt-8">
+                Start with a small batch. Verify our quality. Scale with confidence.
               </p>
             </div>
           </div>

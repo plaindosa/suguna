@@ -45,7 +45,7 @@ export default function Capabilities() {
   ];
 
   return (
-    <div id="capabilities" className="bg-zinc-50 py-24 sm:py-32 border-y border-zinc-200">
+    <div id="capabilities" className="bg-zinc-50 py-16 sm:py-24 border-y border-zinc-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-16">
           <h2 className="text-sm font-bold leading-7 text-yellow-600 uppercase tracking-wider">Our Capabilities</h2>

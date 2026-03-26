@@ -2,7 +2,7 @@ import { CheckCircle, Clock, ShieldCheck, Target, Award, MapPin, History, Users,
 
 export default function AboutUs() {
   return (
-    <div id="about" className="bg-white py-24 sm:py-32 overflow-hidden">
+    <div id="about" className="bg-white py-16 sm:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
