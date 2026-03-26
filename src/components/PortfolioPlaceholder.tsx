@@ -18,49 +18,49 @@ export default function PortfolioPlaceholder() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              src: "/images/portfolioMain/1 sample work ( no applicatoin we made this for showcase of our capability).webp",
+              src: "/images/portfolioMain/1-sample-work.webp",
               title: "Sample Work",
               description: "Showcase of our manufacturing capability (No specific application).",
               category: "Showcase"
             },
             {
-              src: "/images/portfolioMain/2airfram structure titanium made.webp",
+              src: "/images/portfolioMain/2-airframe-structure.webp",
               title: "Airframe Structure",
               description: "High-precision airframe structure manufactured from Titanium.",
               category: "Aerospace"
             },
             {
-              src: "/images/portfolioMain/3 Mounting Bracket Rigid Support Componentfor automation orindustrial.webp",
+              src: "/images/portfolioMain/3-mounting-bracket.webp",
               title: "Mounting Bracket",
               description: "Rigid support component for automation and industrial applications.",
               category: "Automation"
             },
             {
-              src: "/images/portfolioMain/4automationSystem Mounting Component  for for industrial equipment and motion systems.webp",
+              src: "/images/portfolioMain/4-automation-system-mount.webp",
               title: "Automation System Mount",
               description: "Mounting component for industrial equipment and motion systems.",
               category: "Industrial"
             },
             {
-              src: "/images/portfolioMain/5 Drive Plate Torque Transfer Component.webp",
+              src: "/images/portfolioMain/5-drive-plate.webp",
               title: "Drive Plate",
               description: "Precision torque transfer component for mechanical systems.",
               category: "Mechanical"
             },
             {
-              src: "/images/portfolioMain/6vibration fixture for electronic component-1.webp",
+              src: "/images/portfolioMain/6-vibration-fixture.webp",
               title: "Vibration Fixture",
               description: "Specialized fixture for electronic component testing.",
               category: "Electronics"
             },
             {
-              src: "/images/portfolioMain/7 laser cut part.webp",
+              src: "/images/portfolioMain/7-laser-cut-part.webp",
               title: "Laser Cut Part",
               description: "Precision laser-cut component with high edge quality.",
               category: "Laser Cutting"
             },
             {
-              src: "/images/portfolioMain/8edm cut parts for ev and other.webp",
+              src: "/images/portfolioMain/8-edm-cut-parts.webp",
               title: "EDM Cut Parts",
               description: "Wire EDM cut parts for EV and other high-precision sectors.",
               category: "EDM"
