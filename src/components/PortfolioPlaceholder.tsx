@@ -24,7 +24,7 @@ export default function PortfolioPlaceholder() {
               category: "Showcase"
             },
             {
-              src: "/images/portfolioMain/2-airframe-structure.webp",
+              src: "/images/portfolioMain/2-airframe-structure-optimized.webp",
               title: "Airframe Structure",
               description: "High-precision airframe structure manufactured from Titanium.",
               category: "Aerospace"
