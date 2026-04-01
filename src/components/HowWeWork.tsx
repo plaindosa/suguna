@@ -5,7 +5,7 @@ export default function HowWeWork() {
     {
       icon: FileText,
       title: "1. Upload & Quote",
-      description: "Send your rough drawings or CAD files (STEP, IGES, PDF). Receive a clear technical quote within 24 hours."
+      description: "Send your rough drawings or CAD files (3D Models/PDF/STEP/IGES). Receive a clear technical quote within 24 hours."
     },
     {
       icon: Settings,

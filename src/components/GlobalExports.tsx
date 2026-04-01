@@ -3,7 +3,7 @@ import { Globe2, FileCode2, MessageSquare, Package, Plane } from 'lucide-react';
 const features = [
   {
     name: 'Technical Fluency',
-    description: 'We work directly with your STEP, IGES, and PDF drawings, ensuring exact specifications are met without ambiguity.',
+    description: 'We work directly with your 3D Models, STEP, IGES, and PDF drawings, ensuring exact specifications are met without ambiguity.',
     icon: FileCode2,
   },
   {
@@ -32,7 +32,7 @@ export default function GlobalExports() {
             <div className="flex items-center gap-2 mb-4">
               <Globe2 className="h-5 w-5 text-yellow-400" />
               <h2 className="text-sm font-bold leading-7 text-yellow-400 uppercase tracking-wider">
-                Global Sourcing
+                Global Manufacturing
               </h2>
             </div>
             <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">

@@ -134,7 +134,7 @@ export default function ContactCTA() {
                 <div className="flex items-start gap-4">
                   <Mail className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-sm font-medium text-zinc-400">Email Drawings (PDF/STEP/IGES)</p>
+                    <p className="text-sm font-medium text-zinc-400">Email Drawings (3D Models/PDF/STEP/IGES)</p>
                     <a href="mailto:sugunaengineeringworks2007@gmail.com" className="text-lg font-medium text-white hover:text-yellow-400 transition-colors break-all">
                       sugunaengineeringworks2007@gmail.com
                     </a>
@@ -229,7 +229,7 @@ export default function ContactCTA() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-zinc-300 mb-1">Upload Drawing (PDF, STEP, IGES)</label>
+                    <label className="block text-sm font-medium text-zinc-300 mb-1">Upload Drawing (3D Models, PDF, STEP, IGES)</label>
                     <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-zinc-700 border-dashed rounded-md hover:border-yellow-500/50 transition-colors bg-zinc-900/50">
                       <div className="space-y-1 text-center">
                         <Upload className="mx-auto h-8 w-8 text-zinc-500" />
@@ -241,7 +241,7 @@ export default function ContactCTA() {
                           <p className="pl-1">or drag and drop</p>
                         </div>
                         <p className="text-xs text-zinc-500">
-                          {file ? <span className="text-yellow-400 font-medium">{file.name}</span> : "PDF, CAD files up to 800KB"}
+                          {file ? <span className="text-yellow-400 font-medium">{file.name}</span> : "3D Models, PDF, CAD files up to 800KB"}
                         </p>
                       </div>
                     </div>

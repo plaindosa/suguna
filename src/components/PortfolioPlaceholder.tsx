@@ -70,14 +70,10 @@ export default function PortfolioPlaceholder() {
               <div className="aspect-[4/3] w-full overflow-hidden relative">
                 {/* Transparent overlay to prevent direct image interaction */}
                 <div className="absolute inset-0 z-10" onContextMenu={(e) => e.preventDefault()} />
-                <img 
-                  src={item.src} 
-                  alt={item.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
-                  referrerPolicy="no-referrer"
-                  onContextMenu={(e) => e.preventDefault()}
-                  draggable={false}
-                  loading="lazy"
+                <div 
+                  className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                  style={{ backgroundImage: `url(${item.src})` }}
+                  title={item.title}
                 />
                 
                 {/* Gradient Overlay - only covers bottom half */}

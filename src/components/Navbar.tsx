@@ -19,7 +19,7 @@ export default function Navbar() {
     { name: 'Capabilities', href: '#capabilities' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Industries', href: '#industries' },
-    { name: 'International', href: '#global' },
+    { name: 'International Clients', href: '#global' },
     { name: 'About', href: '#about' },
   ];
 
