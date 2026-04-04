@@ -10,9 +10,6 @@ export default function Hero() {
           src="https://images.unsplash.com/photo-1565439390118-bbf16b060b4f?auto=format&fit=crop&q=80&w=2000" 
           alt="CNC Machining" 
           className="w-full h-full object-cover opacity-20"
-          referrerPolicy="no-referrer"
-          fetchPriority="high"
-          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-900/80 to-zinc-900"></div>
       </div>

@@ -13,10 +13,6 @@ export default function Footer() {
                 src="/images/suguna_logo.jpg" 
                 alt="SEW Logo" 
                 className="h-12 w-auto object-contain" 
-                onError={(e) => { 
-                  e.currentTarget.outerHTML = '<div class="w-10 h-10 bg-zinc-900 text-yellow-400 flex items-center justify-center rounded-lg font-bold text-sm">SEW</div>'; 
-                }} 
-                loading="lazy"
               />
               <div className="flex flex-col">
                 <span className="font-bold text-xl tracking-tight text-zinc-900 leading-tight">SUGUNA</span>

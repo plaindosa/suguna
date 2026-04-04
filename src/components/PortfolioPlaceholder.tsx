@@ -66,14 +66,12 @@ export default function PortfolioPlaceholder() {
               category: "EDM"
             }
           ].map((item, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200 shadow-sm transition-all hover:shadow-xl select-none">
+            <div key={i} className="group relative overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200 shadow-sm transition-all hover:shadow-xl">
               <div className="aspect-[4/3] w-full overflow-hidden relative">
-                {/* Transparent overlay to prevent direct image interaction */}
-                <div className="absolute inset-0 z-10" onContextMenu={(e) => e.preventDefault()} />
-                <div 
-                  className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110 pointer-events-none"
-                  style={{ backgroundImage: `url(${item.src})` }}
-                  title={item.title}
+                <img 
+                  src={item.src}
+                  alt={item.title}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 
                 {/* Gradient Overlay - only covers bottom half */}
