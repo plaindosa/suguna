@@ -55,6 +55,12 @@ export default function GlobalExports() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="sm:col-span-2 bg-yellow-400/10 border border-yellow-400/20 p-4 rounded-2xl flex items-center gap-3">
+              <Package className="h-6 w-6 text-yellow-400 shrink-0" />
+              <p className="text-sm font-bold text-yellow-400">
+                Free samples available for qualified international projects.
+              </p>
+            </div>
             {features.map((feature) => (
               <div key={feature.name} className="bg-zinc-800/50 border border-zinc-700/50 p-6 rounded-2xl hover:bg-zinc-800 transition-colors">
                 <feature.icon className="h-8 w-8 text-yellow-400 mb-4" />

@@ -54,6 +54,16 @@ export default function AboutUs() {
                 <stat.icon className={`h-8 w-8 mb-3 ${stat.isStamp ? 'text-zinc-900' : 'text-yellow-500'}`} />
                 <p className={`text-xl font-bold leading-tight ${stat.isStamp ? 'text-zinc-900' : 'text-zinc-900'}`}>{stat.value}</p>
                 <p className={`text-[10px] font-bold uppercase tracking-widest mt-1 ${stat.isStamp ? 'text-zinc-500' : 'text-zinc-400'}`}>{stat.label}</p>
+                {stat.isStamp && (
+                  <a 
+                    href="/images/ISO-9001 2015 LATEST.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="mt-3 text-[10px] font-bold text-zinc-900 underline underline-offset-2 hover:text-yellow-600 transition-colors"
+                  >
+                    View Certificate
+                  </a>
+                )}
               </div>
             ))}
             <div className="col-span-2 bg-zinc-900 p-6 rounded-2xl flex items-center gap-4">

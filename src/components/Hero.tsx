@@ -3,25 +3,30 @@ import { motion } from 'motion/react';
 
 export default function Hero() {
   return (
-    <div className="relative bg-zinc-900 pt-28 pb-16 lg:pt-32 lg:pb-20 overflow-hidden">
+    <div className="relative bg-zinc-900 pt-28 pb-16 lg:pt-32 lg:pb-32 overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1565439390118-bbf16b060b4f?auto=format&fit=crop&q=80&w=2000" 
-          alt="CNC Machining" 
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-900/80 to-zinc-900"></div>
+      <div className="absolute inset-0 z-0 flex justify-end">
+        <div className="w-full lg:w-3/4 h-full relative">
+          <img 
+            src="/images/hero-cnc-machine.webp" 
+            alt="CNC Machining Operations" 
+            className="w-full h-full object-cover opacity-40 lg:opacity-70"
+          />
+          {/* Fading gradients to blend image into the dark background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent lg:via-zinc-900/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-transparent to-transparent opacity-80"></div>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs sm:text-sm font-bold tracking-wide uppercase">
                 <Settings className="w-4 h-4" />
                 Concept → Prototype → Production
@@ -32,31 +37,36 @@ export default function Hero() {
               Precision CNC Machining Partner for <span className="text-yellow-400">Prototypes & Production</span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-zinc-300 leading-relaxed max-w-3xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl text-zinc-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8">
               Trusted by ISRO, Larsen & Toubro, and global engineering companies. Delivering high-precision CNC components for engineering teams across India, USA, and Europe.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-2xl mx-auto lg:mx-0">
               {[
                 "Competitive pricing",
                 "Tolerances up to ±0.01 mm",
                 "Consistent quality"
               ].map((point, i) => (
-                <div key={i} className="flex items-center justify-center gap-2 text-zinc-300 text-sm font-medium">
+                <div key={i} className="flex items-center justify-center lg:justify-start gap-2 text-zinc-300 text-sm font-medium">
                   <CheckCircle2 className="w-5 h-5 text-yellow-400 shrink-0" />
                   <span>{point}</span>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a href="#contact" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-md text-zinc-900 bg-yellow-400 hover:bg-yellow-500 transition-all hover:scale-105 shadow-xl shadow-yellow-400/20">
-                Upload Drawing → Get Quote in 24 Hours
+                Upload Drawing → Get Quote
               </a>
               <a href="#capabilities" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-zinc-600 text-lg font-medium rounded-md text-white bg-zinc-800/50 hover:bg-zinc-700 transition-all backdrop-blur-sm">
                 <FileText className="mr-2 h-5 w-5 text-zinc-400" />
                 View Capabilities
               </a>
+            </div>
+            
+            <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/50 border border-zinc-700 text-zinc-300 text-sm font-medium tracking-wide backdrop-blur-sm">
+              <CheckCircle2 className="w-4 h-4 text-yellow-400" />
+              Free Samples Available for Qualified Projects
             </div>
           </motion.div>
         </div>

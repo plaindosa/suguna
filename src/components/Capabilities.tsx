@@ -1,10 +1,65 @@
-import { Settings, Sparkles, Target, Zap, Scissors, Wrench, Paintbrush, Layers, Flame, Box, Disc } from 'lucide-react';
+import { Sparkles, Paintbrush, Layers, Flame, Box, Disc, Zap } from 'lucide-react';
+
+const CNCIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {/* Spindle */}
+    <path d="M12 2v8" />
+    <path d="M8 2h8" />
+    <path d="M9 6h6" />
+    <path d="M10 10h4l-1.5 3h-1z" />
+    {/* Workpiece */}
+    <path d="M4 16h16v6H4z" />
+    <path d="M8 16v3" />
+    <path d="M16 16v3" />
+  </svg>
+);
+
+const WireEDMIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {/* Wire */}
+    <path d="M12 2v20" strokeDasharray="4 4" />
+    {/* Workpiece */}
+    <path d="M3 12h5l3-4 3 4h7v8H3v-8z" />
+    {/* Sparks */}
+    <path d="M14 7l2-2" />
+    <path d="M15 10l2-2" />
+  </svg>
+);
+
+const LaserIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {/* Laser Head */}
+    <path d="M12 2v8" />
+    <path d="M9 2h6" />
+    <path d="M10 10h4" />
+    {/* Laser Beam */}
+    <path d="M12 10v6" stroke="currentColor" strokeWidth="2" />
+    {/* Sheet Metal */}
+    <path d="M3 18l18-4" />
+    <path d="M3 22l18-4" />
+    <path d="M3 18v4" />
+    <path d="M21 14v4" />
+    {/* Spark */}
+    <circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none" />
+  </svg>
+);
+
+const FabricationIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {/* Welding Helmet */}
+    <path d="M6 10a6 6 0 0 1 12 0v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8z" />
+    {/* Visor */}
+    <path d="M9 10h6v4H9z" />
+    {/* Detail line */}
+    <path d="M12 14v6" />
+  </svg>
+);
 
 export default function Capabilities() {
   const capabilities = [
     {
       title: 'CNC Machining',
-      icon: Target,
+      icon: CNCIcon,
       description: 'High-precision 3-axis CNC milling for small to medium components. Capable of handling complex geometries with tight tolerances.',
       points: [
         'HAAS VF-4 Vertical Machining Center',
@@ -14,7 +69,7 @@ export default function Capabilities() {
     },
     {
       title: 'Wire EDM',
-      icon: Zap,
+      icon: WireEDMIcon,
       description: 'Precision wire-cut EDM for intricate shapes, hard materials, and components requiring exceptional edge quality.',
       points: [
         'FOSTEX FDK 7735 Wire Cut EDM',
@@ -24,7 +79,7 @@ export default function Capabilities() {
     },
     {
       title: 'Laser Cutting & Forming',
-      icon: Scissors,
+      icon: LaserIcon,
       description: 'High-speed fiber laser cutting and hydraulic press-based forming for sheet metal components.',
       points: [
         'FLC 3015 Fiber Laser (8ft × 4ft)',
@@ -34,7 +89,7 @@ export default function Capabilities() {
     },
     {
       title: 'Fabrication & Assembly',
-      icon: Wrench,
+      icon: FabricationIcon,
       description: 'Complete fabricated assemblies including certified welding and structural components.',
       points: [
         'MIG Welding (MIG 350)',
